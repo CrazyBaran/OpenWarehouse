@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>JbCoders.OpenWarehouse</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JbCoders.OpenWarehouse.Domain\JbCoders.OpenWarehouse.Domain.csproj" />
+    <ProjectReference Include="..\JbCoders.OpenWarehouse.Application.Contracts\JbCoders.OpenWarehouse.Application.Contracts.csproj" />
+    <ProjectReference Include="..\JbCoders.OpenWarehouse.MasterData.Application\JbCoders.OpenWarehouse.MasterData.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Account.Application" Version="7.1.0" />
+    <PackageReference Include="Volo.Abp.Identity.Application" Version="7.1.0" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="7.1.0" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="7.1.0" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="7.1.0" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Application" Version="7.1.0" />
+  </ItemGroup>
+
+</Project>

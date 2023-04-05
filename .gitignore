@@ -1,0 +1,3 @@
+
+aspnet-core/src/JbCoders.OpenWarehouse.HttpApi.Host/appsettings.secrets.json
+aspnet-core/src/JbCoders.OpenWarehouse.DbMigrator/appsettings.secrets.json
