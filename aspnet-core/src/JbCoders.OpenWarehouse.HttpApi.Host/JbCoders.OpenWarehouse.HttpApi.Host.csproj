@@ -34,6 +34,7 @@
     <ProjectReference Include="..\JbCoders.OpenWarehouse.Inventory.Application\JbCoders.OpenWarehouse.Inventory.Application.csproj" />
     <ProjectReference Include="..\JbCoders.OpenWarehouse.MasterData.Application\JbCoders.OpenWarehouse.MasterData.Application.csproj" />
     <ProjectReference Include="..\JbCoders.OpenWarehouse.MasterData.EntityFrameworkCore\JbCoders.OpenWarehouse.MasterData.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\JbCoders.OpenWarehouse.PutAwayProcess.Application\JbCoders.OpenWarehouse.PutAwayProcess.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -15,6 +15,7 @@ using JbCoders.OpenWarehouse.Inventory.EntityFrameworkCore;
 using JbCoders.OpenWarehouse.MasterData.Application;
 using JbCoders.OpenWarehouse.MasterData.EntityFrameworkCore.EntityFrameworkCore;
 using JbCoders.OpenWarehouse.MultiTenancy;
+using JbCoders.OpenWarehouse.PutAwayProcess.Application;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite.Bundling;
 using Microsoft.OpenApi.Models;
@@ -152,6 +153,12 @@ public class OpenWarehouseHttpApiHostModule : AbpModule
                 .Create(typeof(OpenWarehouseInventoryApplicationModule).Assembly, opts =>
                 {
                     opts.RootPath = "app/inventory";
+                });
+            
+            options.ConventionalControllers
+                .Create(typeof(OpenWarehousePutAwayProcessApplicationModule).Assembly, opts =>
+                {
+                    opts.RootPath = "app/put-away-process";
                 });
         });
     }
