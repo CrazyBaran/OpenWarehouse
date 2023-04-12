@@ -1,5 +1,6 @@
 ﻿using System;
 using JbCoders.OpenWarehouse.Inventory.EntityFrameworkCore;
+using JbCoders.OpenWarehouse.PutawayProcess.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Uow;
@@ -28,7 +29,8 @@ namespace JbCoders.OpenWarehouse.EntityFrameworkCore;
     typeof(AbpAuditLoggingEntityFrameworkCoreModule),
     typeof(AbpTenantManagementEntityFrameworkCoreModule),
     typeof(AbpFeatureManagementEntityFrameworkCoreModule),
-    typeof(OpenWarehouseInventoryEntityFrameworkCoreModule)
+    typeof(OpenWarehouseInventoryEntityFrameworkCoreModule)//,
+    //typeof(OpenWarehousePutAwayProcessEntityFrameworkCoreModule)
     )]
 public class OpenWarehouseEntityFrameworkCoreModule : AbpModule
 {

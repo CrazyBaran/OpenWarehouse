@@ -1,6 +1,8 @@
 ﻿using JbCoders.OpenWarehouse.Inventory.Domain.Stocks;
 using JbCoders.OpenWarehouse.Inventory.Domain.Storages;
 using JbCoders.OpenWarehouse.Inventory.EntityFrameworkCore;
+using JbCoders.OpenWarehouse.PutawayProcess.Domain.Orders;
+using JbCoders.OpenWarehouse.PutawayProcess.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
@@ -21,12 +23,14 @@ namespace JbCoders.OpenWarehouse.EntityFrameworkCore;
 [ReplaceDbContext(typeof(IIdentityDbContext))]
 [ReplaceDbContext(typeof(ITenantManagementDbContext))]
 [ReplaceDbContext(typeof(IOpenWarehouseInventoryDbContext))]
+[ReplaceDbContext(typeof(IOpenWarehousePutAwayDbContext))]
 [ConnectionStringName("Default")]
 public class OpenWarehouseDbContext :
     AbpDbContext<OpenWarehouseDbContext>,
     IIdentityDbContext,
     ITenantManagementDbContext, 
-    IOpenWarehouseInventoryDbContext
+    IOpenWarehouseInventoryDbContext,
+    IOpenWarehousePutAwayDbContext
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
 
@@ -79,6 +83,8 @@ public class OpenWarehouseDbContext :
         builder.ConfigureTenantManagement();
 
         builder.ConfigureOpenWarehouseInventory();
+        builder.ConfigureOpenWarehousePutAway();
+        
         /* Configure your own tables/entities inside here */
 
         //builder.Entity<YourEntity>(b =>
@@ -92,4 +98,5 @@ public class OpenWarehouseDbContext :
     public DbSet<StorageUnit> StorageUnits => Set<StorageUnit>();
     public DbSet<StockUnit> StockUnits => Set<StockUnit>();
     public DbSet<StockToStorage> StockToStorages => Set<StockToStorage>();
+    public DbSet<Order> Orders => Set<Order>();
 }

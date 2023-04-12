@@ -16,6 +16,7 @@ using JbCoders.OpenWarehouse.MasterData.Application;
 using JbCoders.OpenWarehouse.MasterData.EntityFrameworkCore.EntityFrameworkCore;
 using JbCoders.OpenWarehouse.MultiTenancy;
 using JbCoders.OpenWarehouse.PutAwayProcess.Application;
+using JbCoders.OpenWarehouse.PutawayProcess.EntityFrameworkCore;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.LeptonXLite.Bundling;
 using Microsoft.OpenApi.Models;
@@ -52,7 +53,9 @@ namespace JbCoders.OpenWarehouse;
     typeof(OpenWarehouseMasterDataApplicationModule),
     typeof(OpenWarehouseMasterDataEntityFrameworkCoreModule),
     typeof(OpenWarehouseInventoryApplicationModule),
-    typeof(OpenWarehouseInventoryEntityFrameworkCoreModule)
+    typeof(OpenWarehouseInventoryEntityFrameworkCoreModule),
+    typeof(OpenWarehousePutAwayProcessApplicationModule),
+    typeof(OpenWarehousePutAwayProcessEntityFrameworkCoreModule)
 )]
 public class OpenWarehouseHttpApiHostModule : AbpModule
 {
