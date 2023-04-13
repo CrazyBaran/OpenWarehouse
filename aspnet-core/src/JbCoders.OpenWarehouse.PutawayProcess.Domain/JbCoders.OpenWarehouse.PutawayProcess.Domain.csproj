@@ -11,6 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\JbCoders.OpenWarehouse.Inventory.Domain.Shared\JbCoders.OpenWarehouse.Inventory.Domain.Shared.csproj" />
       <ProjectReference Include="..\JbCoders.OpenWarehouse.PutAwayProcess.Domain.Shared\JbCoders.OpenWarehouse.PutAwayProcess.Domain.Shared.csproj" />
     </ItemGroup>
 

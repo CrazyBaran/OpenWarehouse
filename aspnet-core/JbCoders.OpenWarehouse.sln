@@ -75,6 +75,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JbCoders.OpenWarehouse.Puta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JbCoders.OpenWarehouse.PutAwayProcess.Domain.Shared", "src\JbCoders.OpenWarehouse.PutAwayProcess.Domain.Shared\JbCoders.OpenWarehouse.PutAwayProcess.Domain.Shared.csproj", "{62D31031-204D-47A9-A66B-6D1AA14E4C7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JbCoders.OpenWarehouse.Inventory.Domain.Shared", "src\JbCoders.OpenWarehouse.Inventory.Domain.Shared\JbCoders.OpenWarehouse.Inventory.Domain.Shared.csproj", "{AD1AF462-9FF5-4C3E-87F7-AD8BED333E7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -197,6 +199,10 @@ Global
 		{62D31031-204D-47A9-A66B-6D1AA14E4C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62D31031-204D-47A9-A66B-6D1AA14E4C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62D31031-204D-47A9-A66B-6D1AA14E4C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD1AF462-9FF5-4C3E-87F7-AD8BED333E7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD1AF462-9FF5-4C3E-87F7-AD8BED333E7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD1AF462-9FF5-4C3E-87F7-AD8BED333E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD1AF462-9FF5-4C3E-87F7-AD8BED333E7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -232,6 +238,7 @@ Global
 		{CCD18799-8436-469B-85AA-CE00CC44040A} = {51580620-EEE5-41C9-8EFE-1106F6E2EAD1}
 		{CCE34901-9792-4060-AB97-B530BF06F464} = {51580620-EEE5-41C9-8EFE-1106F6E2EAD1}
 		{62D31031-204D-47A9-A66B-6D1AA14E4C7E} = {51580620-EEE5-41C9-8EFE-1106F6E2EAD1}
+		{AD1AF462-9FF5-4C3E-87F7-AD8BED333E7C} = {2876E68B-DDFA-4010-9709-E0DCD93AA313}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}

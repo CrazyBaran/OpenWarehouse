@@ -9,4 +9,19 @@ public class Order : FullAuditedAggregateRoot<Guid>, IMultiTenant
     public OrderStatus Status { get; set; }
     public List<OrderItem> Items { get; set; }
     public Guid? TenantId { get; protected set; }
+    
+    public void ReadyToPutAway()
+    {
+        Status = OrderStatus.WaitingForLocations;
+        
+        foreach (var orderItem in Items)
+        {
+            AddDistributedEvent(new OrderItemReadyForLocationEto
+            {
+                OrderId = Id,
+                ProductId = orderItem.ProductId,
+                Quantity = orderItem.Quantity
+            });
+        }
+    }
 }

@@ -30,4 +30,13 @@ public class OrderAppService
 
         return order;
     }
+
+    protected override async Task MapToEntityAsync(UpdateOrderDto updateInput, Order entity)
+    {
+        if (Enum.TryParse<OrderStatus>(updateInput.Status, out var parsedStatus)
+            && parsedStatus == OrderStatus.WaitingForLocations)
+        {
+            entity.ReadyToPutAway();
+        }
+    }
 }
