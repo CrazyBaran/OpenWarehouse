@@ -6,4 +6,5 @@ public class StorageUnitResultRequestDto : PagedAndSortedResultRequestDto
 {
     public int Depth { get; set; } = 1;
     public string? ParentStorageUnitHierarchyId { get; set; } 
+    public string? DisplayNameSearch { get; set; }
 }

@@ -25,7 +25,7 @@ public class StorageUnitAssigningHandler
     public async Task HandleEventAsync(OrderItemReadyForLocationEto eventData)
     {
         var storageUnitCount = await _storageUnitRepository.CountAsync();
-        var randomizer = new Random();
+        var randomizer = new Random(Guid.NewGuid().GetHashCode());
         var skip = randomizer.Next(storageUnitCount);
 
 
@@ -35,7 +35,15 @@ public class StorageUnitAssigningHandler
         {
             OrderId = eventData.OrderId,
             ProductId = eventData.ProductId,
-            StorageUnitId = storageUnit.Id
+            Locations = new List<StorageUnitLocationEto>()
+            {
+                new StorageUnitLocationEto()
+                {
+                    StorageUnitId = storageUnit.Id,
+                    HierarchyId = storageUnit.HierarchyId.ToString(),
+                    Quantity = eventData.Quantity
+                }
+            }
         });
     }
 }

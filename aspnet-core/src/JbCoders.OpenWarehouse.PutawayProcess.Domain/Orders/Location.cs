@@ -10,6 +10,7 @@ public class Location : FullAuditedEntity, IMultiTenant
     public Guid OrderId { get; set; }
     public Guid ProductId { get; set; }
     public OrderItem OrderItem { get; set; }
+    public Guid StorageUnitId { get; set; }
     public string HierarchyId { get; set; }
     public decimal Quantity { get; set; }
     

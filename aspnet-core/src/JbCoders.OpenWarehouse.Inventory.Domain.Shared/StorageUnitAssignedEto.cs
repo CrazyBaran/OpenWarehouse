@@ -7,5 +7,5 @@ public class StorageUnitAssignedEto
 {
     public Guid OrderId { get; set; }
     public Guid ProductId { get; set; }
-    public Guid StorageUnitId { get; set; }
+    public List<StorageUnitLocationEto> Locations { get; set; }
 }

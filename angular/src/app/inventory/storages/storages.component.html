@@ -1,0 +1,145 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col col-md-6">
+        <h5 class="card-title">
+          {{ 'Inventory::StorageUnits' | abpLocalization }}
+        </h5>
+      </div>
+      <div class="d-flex pt-1 gap-2">
+        <div class="text-lg-end mr-2">
+          <button
+            id="create"
+            class="btn btn-primary"
+            type="button"
+            [disabled]="storageUnitRequestParams.parentStorageUnitHierarchyId === undefined"
+            (click)="returnToRoot()"
+          >
+            <i class="fa fa-fast-backward me-1"></i>
+            <span>{{ 'Inventory::ReturnToRoot' | abpLocalization }}</span>
+          </button>
+        </div>
+        <div class="text-lg-end">
+          <button
+            id="create"
+            class="btn btn-primary"
+            type="button"
+            [disabled]="storageUnitRequestParams.parentStorageUnitHierarchyId === undefined"
+            (click)="returnToParent()"
+          >
+            <i class="fa fa-step-backward me-1"></i>
+            <span>{{ 'Inventory::ReturnToParent' | abpLocalization }}</span>
+          </button>
+        </div>
+
+        <div class="text-lg-end ms-auto">
+          <button id="create" class="btn btn-primary" type="button" (click)="createStorageUnit()">
+            <i class="fa fa-plus me-1"></i>
+            <span>{{ 'Inventory::NewStorageUnit' | abpLocalization }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div id="data-tables-table-filter" class="data-tables-filter">
+      <div class="input-group">
+        <input
+          type="number"
+          class="form-control"
+          [placeholder]="'Inventory::Depth' | abpLocalization"
+          min="1"
+          [(ngModel)]="storageUnitRequestParams.depth"
+          (ngModelChange)="storageUnitRequestParamsChange($event)"
+        />
+      </div>
+    </div>
+    <ngx-datatable [rows]="storages.items" [count]="storages.totalCount" [list]="list" default>
+      <ngx-datatable-column
+        [name]="'::Actions' | abpLocalization"
+        [resizeable]="false"
+        [minWidth]="170"
+        [maxWidth]="170"
+        [sortable]="false"
+      >
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <div class="d-flex justify-content-between">
+            <div ngbDropdown container="body" class="d-inline-block">
+              <button
+                class="btn btn-primary btn-sm dropdown-toggle"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                ngbDropdownToggle
+              >
+                <i class="fa fa-cog me-1"></i>{{ '::Actions' | abpLocalization }}
+              </button>
+              <div ngbDropdownMenu>
+                <button ngbDropdownItem>
+                  {{ '::Edit' | abpLocalization }}
+                </button>
+              </div>
+            </div>
+            <div>
+              <button
+                id="create"
+                class="btn btn-primary"
+                type="button"
+                (click)="goToChilds(row.hierarchyId)"
+              >
+                <i class="fa fa-step-forward"></i>
+              </button>
+            </div>
+          </div>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column
+        [name]="'Inventory::HierarchyId' | abpLocalization"
+        prop="hierarchyId"
+      ></ngx-datatable-column>
+      <ngx-datatable-column
+        [name]="'Inventory::DisplayName' | abpLocalization"
+        prop="displayName"
+      ></ngx-datatable-column>
+
+      <ngx-datatable-column [name]="'::CreationTime' | abpLocalization" prop="creationTime">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ row.creationTime | date }}
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+</div>
+
+<abp-modal [(visible)]="isModalOpen">
+  <ng-template #abpHeader>
+    <h3>{{ 'Inventory::NewStorageUnit' | abpLocalization }}</h3>
+  </ng-template>
+
+  <ng-template #abpBody>
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <div class="mt-2">
+        <label for="book-name">{{ 'Inventory::DisplayName' | abpLocalization }}</label
+        ><span> * </span>
+        <input
+          type="text"
+          id="storage-unit-name"
+          class="form-control"
+          formControlName="displayName"
+          autofocus
+        />
+      </div>
+    </form>
+  </ng-template>
+
+  <ng-template #abpFooter>
+    <button type="button" class="btn btn-secondary" abpClose>
+      {{ '::Close' | abpLocalization }}
+    </button>
+
+    <!--added save button-->
+    <button class="btn btn-primary" (click)="save()" [disabled]="form.invalid">
+      <i class="fa fa-check mr-1"></i>
+      {{ '::Save' | abpLocalization }}
+    </button>
+  </ng-template>
+</abp-modal>

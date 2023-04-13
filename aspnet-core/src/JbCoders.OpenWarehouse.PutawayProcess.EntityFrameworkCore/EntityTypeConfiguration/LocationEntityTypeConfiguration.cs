@@ -15,7 +15,8 @@ public class LocationEntityTypeConfiguration
     {
         builder.ToTable(OpenWarehousePutAwayProcessDbProperties.DbTablePrefix + "Locations",
             OpenWarehousePutAwayProcessDbProperties.DbSchema);
-        builder.HasKey(_ => new {_.OrderId, _.ProductId, _.HierarchyId});
+        builder.HasKey(_ => new {_.OrderId, _.ProductId, _.StorageUnitId});
+        builder.HasIndex(_ => new {_.TenantId, _.OrderId, _.ProductId, _.StorageUnitId});
         builder.HasIndex(_ => new {_.TenantId, _.OrderId, _.ProductId, _.HierarchyId});
         builder.Property(_ => _.TenantId).IsRequired();
 

@@ -44,6 +44,12 @@ public class StorageUnitAppService : CrudAppService<StorageUnit,
                 ancestor.HierarchyId
                     .IsDescendantOf(parentHierarchyId) &&
                 ancestor.HierarchyId.GetLevel() <= parentHierarchyId.GetLevel() + input.Depth);
+
+        if (!string.IsNullOrWhiteSpace(input.DisplayNameSearch))
+        {
+            filteredQueryAsync = filteredQueryAsync
+                .Where(_ => _.DisplayName.Contains(input.DisplayNameSearch));
+        }
         return filteredQueryAsync;
     }
 
