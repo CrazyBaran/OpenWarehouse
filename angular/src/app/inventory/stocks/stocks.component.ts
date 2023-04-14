@@ -3,6 +3,7 @@ import { ListService, PagedResultDto } from '@abp/ng.core';
 import { StockDto } from '@proxy/inventory/application/contracts/stocks';
 import { StockUnitService } from '@proxy/inventory/application/stocks';
 import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-stocks',
@@ -16,7 +17,9 @@ export class StocksComponent implements OnInit {
   constructor(
     public readonly list: ListService,
     private stockUnitService: StockUnitService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -25,5 +28,9 @@ export class StocksComponent implements OnInit {
     this.list.hookToQuery(stockStreamCreator).subscribe(response => {
       this.stocks = response;
     });
+  }
+
+  showDetails(id: string) {
+    this.router.navigate([id, 'locations'], { relativeTo: this.route });
   }
 }

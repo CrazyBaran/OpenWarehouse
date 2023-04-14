@@ -89,7 +89,7 @@ export class StoragesComponent implements OnInit {
 
   returnToParent() {
     var hierarchyId = this.storageUnitRequestParams.parentStorageUnitHierarchyId;
-    hierarchyId = hierarchyId.substring(0, hierarchyId.length - 1);
+    hierarchyId = hierarchyId.slice(0, -1);
     hierarchyId = hierarchyId.substring(0, hierarchyId.lastIndexOf('/') + 1);
     this.storageUnitRequestParams.parentStorageUnitHierarchyId = hierarchyId;
     this.list.get();
