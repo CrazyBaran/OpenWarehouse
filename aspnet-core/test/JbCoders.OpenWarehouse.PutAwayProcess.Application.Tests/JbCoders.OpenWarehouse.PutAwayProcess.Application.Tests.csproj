@@ -22,4 +22,9 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\JbCoders.OpenWarehouse.PutawayProcess.EntityFrameworkCore\JbCoders.OpenWarehouse.PutawayProcess.EntityFrameworkCore.csproj" />
+      <ProjectReference Include="..\JbCoders.OpenWarehouse.PutAwayProcess.TestBase\JbCoders.OpenWarehouse.PutAwayProcess.TestBase.csproj" />
+    </ItemGroup>
+
 </Project>
