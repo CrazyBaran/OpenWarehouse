@@ -6,6 +6,16 @@ namespace JbCoders.OpenWarehouse.PutawayProcess.Domain.Orders;
 
 public class Order : FullAuditedAggregateRoot<Guid>, IMultiTenant
 {
+    public Order()
+    {
+        
+    }
+
+    public Order(Guid productId) : base(productId)
+    {
+        
+    }
+    
     public OrderStatus Status { get; set; }
     public List<OrderItem> Items { get; set; } = new();
     public Guid? TenantId { get; protected set; }

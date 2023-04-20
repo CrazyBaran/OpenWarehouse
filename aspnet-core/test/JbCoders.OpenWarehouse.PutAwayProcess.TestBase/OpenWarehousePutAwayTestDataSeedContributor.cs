@@ -1,5 +1,6 @@
 using JbCoders.OpenWarehouse.PutawayProcess.Domain.Orders;
 using JbCoders.OpenWarehouse.PutAwayProcess.Domain.Shared.Orders;
+using JbCoders.OpenWarehouse.PutAwayProcess.TestBase.Data;
 using Volo.Abp.Data;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Domain.Repositories;
@@ -14,21 +15,34 @@ public class OpenWarehousePutAwayTestDataSeedContributor : IDataSeedContributor,
     {
         _orderRepository = orderRepository;
     }
-    
+
     public async Task SeedAsync(DataSeedContext context)
     {
-        await _orderRepository.InsertAsync(new Order()
+        await _orderRepository.InsertAsync(new Order
+            {
+                Status = OrderStatus.Draft,
+                Items = new List<OrderItem>
+                {
+                    new()
+                    {
+                        ProductId = Guid.NewGuid(),
+                        Quantity = 10
+                    }
+                }
+            },
+            true);
+
+        await _orderRepository.InsertAsync(new Order(OrderTestData.OrderWithOneLineWaitingForLocation.OrderId)
         {
-            Status = OrderStatus.Draft,
+            Status = OrderStatus.WaitingForLocations,
             Items = new List<OrderItem>()
             {
                 new()
                 {
-                    ProductId = Guid.NewGuid(),
+                    ProductId = OrderTestData.OrderWithOneLineWaitingForLocation.OrderLineProductId,
                     Quantity = 10
                 }
             }
-        }, 
-            autoSave: true);
+        }, true);
     }
 }

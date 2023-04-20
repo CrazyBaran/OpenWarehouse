@@ -8,6 +8,7 @@ using Volo.Abp;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.Sqlite;
 using Volo.Abp.Modularity;
+using Volo.Abp.Uow;
 
 namespace JbCoders.OpenWarehouse.PutAwayProcess.EntityFrameworkCore.Tests;
 
@@ -30,6 +31,11 @@ public class OpenWarehousePutAwayProcessEntityFrameworkCoreTestModule : AbpModul
             {
                 abpDbContextConfigurationContext.DbContextOptions.UseSqlite(_sqliteConnection);
             });
+        });
+        
+        Configure<AbpUnitOfWorkDefaultOptions>(options =>
+        {
+            options.TransactionBehavior = UnitOfWorkTransactionBehavior.Disabled; //EF in-memory database does not support transactions
         });
     }
     
