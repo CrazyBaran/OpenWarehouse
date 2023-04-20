@@ -9,7 +9,7 @@ namespace JbCoders.OpenWarehouse.PutAwayProcess.Application.Orders;
 
 public class OrderAppService 
     : CrudAppService<Order,OrderDto,Guid, PagedAndSortedResultRequestDto,
-        CreateOrderDto, UpdateOrderDto>
+        CreateOrderDto, UpdateOrderDto>, IOrderAppService
 {
     public OrderAppService(IRepository<Order, Guid> repository) : base(repository)
     {

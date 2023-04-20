@@ -83,7 +83,7 @@ public class OpenWarehouseDbContext :
         builder.ConfigureTenantManagement();
 
         builder.ConfigureOpenWarehouseInventory();
-        builder.ConfigureOpenWarehousePutAway();
+        builder.ConfigureOpenWarehousePutAwayProcess();
         
         /* Configure your own tables/entities inside here */
 

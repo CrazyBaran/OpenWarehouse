@@ -1,3 +1,6 @@
+using System.Runtime.CompilerServices;
+using JbCoders.OpenWarehouse.PutAwayProcess.Application.Contracts;
+using JbCoders.OpenWarehouse.PutawayProcess.Domain;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Application;
 using Volo.Abp.AutoMapper;
@@ -7,7 +10,9 @@ namespace JbCoders.OpenWarehouse.PutAwayProcess.Application;
 
 [DependsOn(
 typeof(AbpDddApplicationModule),
-    typeof(AbpAutoMapperModule))]
+    typeof(AbpAutoMapperModule),
+typeof(OpenWarehousePutAwayProcessDomainModule),
+typeof(OpenWarehousePutAwayProcessApplicationContractsModule))]
 public class OpenWarehousePutAwayProcessApplicationModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)

@@ -22,6 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\JbCoders.OpenWarehouse.PutAwayProcess.EntityFrameworkCore.Tests\JbCoders.OpenWarehouse.PutAwayProcess.EntityFrameworkCore.Tests.csproj" />
       <ProjectReference Include="..\JbCoders.OpenWarehouse.PutAwayProcess.TestBase\JbCoders.OpenWarehouse.PutAwayProcess.TestBase.csproj" />
     </ItemGroup>
 

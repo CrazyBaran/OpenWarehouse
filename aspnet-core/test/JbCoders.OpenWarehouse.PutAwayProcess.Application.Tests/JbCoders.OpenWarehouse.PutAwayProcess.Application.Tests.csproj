@@ -10,6 +10,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
+        <PackageReference Include="Shouldly" Version="4.1.0" />
         <PackageReference Include="Volo.Abp.Core" Version="7.1.0" />
         <PackageReference Include="xunit" Version="2.4.2" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
@@ -23,7 +24,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\src\JbCoders.OpenWarehouse.PutAwayProcess.Application.Contracts\JbCoders.OpenWarehouse.PutAwayProcess.Application.Contracts.csproj" />
+      <ProjectReference Include="..\..\src\JbCoders.OpenWarehouse.PutAwayProcess.Application\JbCoders.OpenWarehouse.PutAwayProcess.Application.csproj" />
       <ProjectReference Include="..\..\src\JbCoders.OpenWarehouse.PutawayProcess.EntityFrameworkCore\JbCoders.OpenWarehouse.PutawayProcess.EntityFrameworkCore.csproj" />
+      <ProjectReference Include="..\JbCoders.OpenWarehouse.PutAwayProcess.Domain.Tests\JbCoders.OpenWarehouse.PutAwayProcess.Domain.Tests.csproj" />
       <ProjectReference Include="..\JbCoders.OpenWarehouse.PutAwayProcess.TestBase\JbCoders.OpenWarehouse.PutAwayProcess.TestBase.csproj" />
     </ItemGroup>
 

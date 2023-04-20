@@ -12,4 +12,10 @@ public class OpenWarehousePutAwayDbContext :
     }
 
     public DbSet<Order> Orders => Set<Order>();
+    
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+        builder.ConfigureOpenWarehousePutAwayProcess();
+    }
 }
