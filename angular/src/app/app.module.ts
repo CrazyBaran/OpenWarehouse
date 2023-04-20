@@ -17,6 +17,7 @@ import { APP_ROUTE_PROVIDER } from './route.provider';
 import { FeatureManagementModule } from '@abp/ng.feature-management';
 import { AbpOAuthModule } from '@abp/ng.oauth';
 import { InventoryConfigModule } from './inventory/config/inventory-config.module';
+import { PutAwayProcessConfigModule } from './put-away-process/config/put-away-process-config.module';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { InventoryConfigModule } from './inventory/config/inventory-config.modul
     SideMenuLayoutModule.forRoot(),
     FeatureManagementModule.forRoot(),
     InventoryConfigModule.forRoot(),
+    PutAwayProcessConfigModule.forRoot(),
   ],
   declarations: [AppComponent],
   providers: [APP_ROUTE_PROVIDER],

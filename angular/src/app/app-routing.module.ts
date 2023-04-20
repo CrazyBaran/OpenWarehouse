@@ -26,6 +26,7 @@ const routes: Routes = [
       import('@abp/ng.setting-management').then(m => m.SettingManagementModule.forLazy()),
   },
   { path: 'inventory', loadChildren: () => import('./inventory/inventory.module').then(m => m.InventoryModule) },
+  { path: 'put-away-process', loadChildren: () => import('./put-away-process/put-away-process.module').then(m => m.PutAwayProcessModule) },
 ];
 
 @NgModule({

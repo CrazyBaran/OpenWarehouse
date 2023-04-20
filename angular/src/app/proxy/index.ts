@@ -1,2 +1,3 @@
 import * as Inventory from './inventory';
-export { Inventory };
+import * as PutAwayProcess from './put-away-process';
+export { Inventory, PutAwayProcess };

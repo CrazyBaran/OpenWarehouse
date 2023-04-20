@@ -13,4 +13,5 @@ export interface StorageUnitDto extends FullAuditedEntityDto<string> {
 export interface StorageUnitResultRequestDto extends PagedAndSortedResultRequestDto {
   depth: number;
   parentStorageUnitHierarchyId?: string;
+  displayNameSearch?: string;
 }

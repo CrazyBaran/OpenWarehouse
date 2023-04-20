@@ -39,7 +39,7 @@ export class StorageUnitService {
     this.restService.request<any, PagedResultDto<StorageUnitDto>>({
       method: 'GET',
       url: '/api/app/inventory/storage-unit',
-      params: { depth: input.depth, parentStorageUnitHierarchyId: input.parentStorageUnitHierarchyId, sorting: input.sorting, skipCount: input.skipCount, maxResultCount: input.maxResultCount },
+      params: { depth: input.depth, parentStorageUnitHierarchyId: input.parentStorageUnitHierarchyId, displayNameSearch: input.displayNameSearch, sorting: input.sorting, skipCount: input.skipCount, maxResultCount: input.maxResultCount },
     },
     { apiName: this.apiName });
   
