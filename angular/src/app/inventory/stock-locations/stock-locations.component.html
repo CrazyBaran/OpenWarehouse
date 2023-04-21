@@ -1,1 +1,32 @@
-<p>stock-locations works!</p>
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col col-md-6">
+        <h5 class="card-title">
+          {{ 'Inventory::StockUnitLocations' | abpLocalization }}
+        </h5>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <ngx-datatable [rows]="stockLocations.items" [count]="stockLocations.totalCount" [list]="list" default>
+      <ngx-datatable-column
+        [name]="'Inventory::Id' | abpLocalization"
+        prop="hierarchyId"
+      ></ngx-datatable-column>
+      <ngx-datatable-column
+        [name]="'Inventory::DisplayName' | abpLocalization"
+        prop="displayName"
+      ></ngx-datatable-column>
+      <ngx-datatable-column
+        [name]="'Inventory::TotalQuantity' | abpLocalization"
+        prop="quantity"
+      ></ngx-datatable-column>
+      <ngx-datatable-column [name]="'::CreationTime' | abpLocalization" prop="creationTime">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ row.creationTime | date }}
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+</div>
