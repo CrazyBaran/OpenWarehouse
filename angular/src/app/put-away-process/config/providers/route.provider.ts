@@ -20,7 +20,7 @@ export function configureRoutes(routesService: RoutesService) {
         path: '/put-away-process/orders',
         name: ePutAwayProcessRouteNames.Orders,
         parentName: ePutAwayProcessRouteNames.PutAwayProcessManagement,
-        iconClass: 'fas fa-file',
+        iconClass: 'fas fa-file-lines',
         order: 1,
       }
     ]);
